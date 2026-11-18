@@ -5,7 +5,57 @@
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <b>UNTV NAR Status</b><br>
-    November 17, 2026
+    Welcome, Bro. <b>Marlon Toradio, RDA</b><br>
+    Tandem Regions: <b>R5, R6, D5</b><hr>
+    <table>
+        <tr>
+            <td style="width: 200px;">Region</td>
+            <td style="width: 200px;">Team</td>
+        </tr>
+        <tr>
+            <td>
+                <select id="region" onchange="updateTeams()">
+                <option value="">--Select region--</option>
+                <option value="Region V">Region V</option>
+                <option value="Region VI">Region VI</option>
+                <option value="Region VII">Region VII</option>
+                <option value="Region VIII">Region VIII</option>
+                <option value="NCR">NCR</option>
+                </select>                
+            </td>
+            <td>
+                <select id="team">
+                    <option value="">--Select team--</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    
+
+
+
+
+    <script>
+        function updateTeams(){
+            const region = document.getElementById("region").value;
+            const teamDropdown = document.getElementById("team");
+            //clear existing options
+            teamDropdown.innerHTML = '<option value="">--Select team--</option>';
+            let teams = [];
+            if (region === "Region V"){
+                teams = ["Albay","Camarines Norte","Camarines Sur"];            
+            } else if (region === "Region VI"){
+                teams = ["Aklan","Antique","Capiz","Iloilo","Negros Occidental"];
+            }
+        
+        teams.forEach(function(team) {
+        let option = document.createElement("option");
+        option.value = team;
+        option.text = team;
+        teamDropdown.appendChild(option);
+        });
+    }
+    </script>
+
 </body>
 </html>
