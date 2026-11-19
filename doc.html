@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependent Dropdown</title>
+</head>
+<body>
+
+<h3>Select Department and Team</h3>
+
+
+<select id="department" onchange="updateTeams()">
+    <option value="">-- Select Department --</option>
+    <option value="News">News</option>
+    <option value="Engineering">Engineering</option>
+    <option value="IT">IT</option>
+</select>
+
+<br><br>
+
+<select id="team">
+    <option value="">-- Select Team --</option>
+</select>
+
+<script>
+function updateTeams() {
+    const department = document.getElementById("department").value;
+    const teamDropdown = document.getElementById("team");
+
+    // Clear existing options
+    teamDropdown.innerHTML = '<option value="">-- Select Team --</option>';
+
+    let teams = [];
+
+    if (department === "News") {
+        teams = ["Team A", "Team B", "Team C"];
+    } else if (department === "Engineering") {
+        teams = ["Camera", "Audio", "Transmission"];
+    } else if (department === "IT") {
+        teams = ["Help Desk", "Programming", "Network"];
+    }
+
+    teams.forEach(function(team) {
+        let option = document.createElement("option");
+        option.value = team;
+        option.text = team;
+        teamDropdown.appendChild(option);
+    });
+}
+</script>
+
+</body>
+</html>
