@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Collapsible Sections</title>
+
+<style>
+.content {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    margin: 5px;
+    padding: 10px 15px;
+}
+</style>
+</head>
+<body>
+
+<button onclick="toggleContent('content1')">
+    Show News
+</button>
+
+<button onclick="toggleContent('content2')">
+    Show Reports
+</button>
+
+<div id="content1" class="content">
+    <h3>News</h3>
+    <p>This is the News content.</p>
+</div>
+
+<div id="content2" class="content">
+    <h3>Reports</h3>
+    <p>This is the Reports content.</p>
+</div>
+
+<script>
+function toggleContent(id) {
+    const content = document.getElementById(id);
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
